@@ -67,14 +67,16 @@ if (contactForm) {
         }
       });
       
-      if (response.ok) {
-        // Sembunyikan form, tampilkan success message
-        formContainer.style.display = 'none';
-        successMessage.style.display = 'block';
-        
-        // Reset form untuk next time
-        contactForm.reset();
-      } else {
+if (response.ok) {
+  // Sembunyikan form, tampilkan success message
+  formContainer.style.display = 'none';
+  successMessage.style.display = 'block';
+  
+  // Reset form untuk next time
+  contactForm.reset();
+}
+
+else {
         const data = await response.json();
         if (data.errors) {
           alert(data.errors.map(error => error.message).join(', '));
@@ -91,6 +93,16 @@ if (contactForm) {
       submitBtn.textContent = 'kirim pesan';
     }
   });
+  
+if (response.ok) {
+  // Kasih delay 1 detik biar "Mengirim..." keliatan
+  setTimeout(() => {
+    formContainer.style.display = 'none';
+    successMessage.style.display = 'block';
+    contactForm.reset();
+  }, 1000);
+}
+
 }
   console.log('✅ Website siap!');
 });
