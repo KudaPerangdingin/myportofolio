@@ -42,5 +42,51 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ===== FORM HANDLER DENGAN SUCCESS MESSAGE =====
+const contactForm = document.getElementById('contactForm');
+const formContainer = document.getElementById('formContainer');
+const successMessage = document.getElementById('successMessage');
+const submitBtn = document.getElementById('submitBtn');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Disable button biar gak double klik
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Mengirim...';
+    
+    const formData = new FormData(contactForm);
+    
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        // Sembunyikan form, tampilkan success message
+        formContainer.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Reset form untuk next time
+        contactForm.reset();
+      } else {
+        alert('Gagal mengirim pesan. Coba lagi nanti.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'kirim pesan';
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Terjadi kesalahan. Cek koneksi internet Anda.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'kirim pesan';
+    }
+  });
+}
+
   console.log('✅ Website siap!');
 });
