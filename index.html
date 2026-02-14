@@ -252,30 +252,26 @@
           <p>🔗 linkedin.com/in/haekalwithe</p>
         </div>
 
-        <!-- Contact Form -->
-        <div id="contactFormContainer">
-          <form id="realContactForm" class="contact-form">
-            <div class="form-group">
-              <input type="text" id="name" placeholder="nama anda" required>
-            </div>
-            <div class="form-group">
-              <input type="email" id="email" placeholder="email anda" required>
-            </div>
-            <div class="form-group">
-              <textarea id="message" rows="4" placeholder="pesan / lowongan kerja..." required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">kirim pesan</button>
-          </form>
+    <!-- Contact Form -->
+    <div id="contactFormContainer">
+      <form action="https://formspree.io/f/mzdarzok" method="POST" class="contact-form" id="realContactForm">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="nama anda" required>
         </div>
-
-        <div id="successBlock" class="success-message hidden">
-          ✅ Terima kasih! Pesan Anda sudah terkirim.<br>
-          <span style="font-size: 0.9rem;">Saya akan segera merespon dalam 1x24 jam</span>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="email anda" required>
         </div>
-      </div>
-    </section>
-  </main>
+        <div class="form-group">
+          <textarea name="message" rows="4" placeholder="pesan / lowongan kerja..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">kirim pesan</button>
+      </form>
+    </div>
 
+    <div id="successBlock" class="success-message hidden">
+      ✅ Terima kasih! Pesan Anda sudah terkirim.<br>
+      <span style="font-size: 0.9rem;">Saya akan segera merespon dalam 1x24 jam</span>
+    </div>
   <footer>
     <div class="container">
       <p>© 2025 Muhammad Haekal · Mechatronics Engineer & Photographer</p>
@@ -284,20 +280,4 @@
 
   <script src="js/script.js"></script>
 </body>
-<!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/mzdarzok"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
 </html>
