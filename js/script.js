@@ -60,57 +60,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ===== 4. FORM HANDLER (FINAL VERSION) =====
-  const contactForm = document.getElementById('contactForm');
-  const formContainer = document.getElementById('formContainer');
-  const successMessage = document.getElementById('successMessage');
-  const submitBtn = document.getElementById('submitBtn');
-
-  // CEK DULU APAKAH SEMUA ELEMENT ADA
-  if (contactForm && formContainer && successMessage && submitBtn) {
-    console.log('✅ Form elements ditemukan');
-    
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // Disable button
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Mengirim...';
-      
-      const formData = new FormData(contactForm);
-      
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-        
-        if (response.ok) {
-          // Sembunyikan form, tampilkan success message
-          formContainer.style.display = 'none';
-          successMessage.style.display = 'block';
-          contactForm.reset();
-        } else {
-          const data = await response.json();
-          alert('Error: ' + (data?.errors?.[0]?.message || 'Gagal kirim'));
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'kirim pesan';
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('Gagal mengirim pesan. Cek koneksi internet.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'kirim pesan';
-      }
-    });
-  } else {
-    console.log('⚠️ Form elements tidak ditemukan, cek ID di HTML');
-    if (!contactForm) console.log('contactForm tidak ada');
-    if (!formContainer) console.log('formContainer tidak ada');
-    if (!successMessage) console.log('successMessage tidak ada');
-    if (!submitBtn) console.log('submitBtn tidak ada');
-  }
-
   console.log('✅ Website siap!');
 });
