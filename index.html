@@ -1,272 +1,565 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Haekal · Mechatronics Engineer & Photographer</title>
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Haekal - Portofolio</title>
+    <style>
+        /* ===== CSS LANGSUNG DI SINI ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0c0f;
+            color: #e3e6ea;
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 12, 15, 0.95);
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid #2a2f36;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: white;
+            border: 1.5px solid #3b82f6;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b8c5;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: #3b82f6;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #b0b8c5;
+            margin: 1rem 0;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid #3b82f6;
+            color: white;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: #121820;
+            border: 1px solid #2a3440;
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        /* EXPERIENCE */
+        .exp-card {
+            background: #121820;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #2a3440;
+        }
+
+        .exp-company {
+            color: #3b82f6;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .exp-list {
+            list-style: none;
+        }
+
+        .exp-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .exp-list li::before {
+            content: "▹";
+            color: #3b82f6;
+            position: absolute;
+            left: 0;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #121820;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #2a3440;
+        }
+
+        .project-title {
+            color: #3b82f6;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #1e293b;
+            color: #b9c9fa;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        /* CONTACT */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #121820;
+            padding: 2rem;
+            border-radius: 32px;
+            border: 1px solid #2a3440;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: #1d2632;
+            border: 1px solid #374151;
+            border-radius: 30px;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #1e262f;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .about-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="container header-flex">
-      <div class="logo">◉ HAEKAL</div>
-      <nav class="nav-links">
-        <a href="#welcome">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">◉ Myporto</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Muhammad <span class="highlight">Haekal</span></h1>
+            <p class="tagline">Mechatronics Engineer · Photographer · IT Support</p>
+            <p>📞 +62 895-3297-165-31 | ✉️ haekalmuhammad1031@gmail.com</p>
+            <div style="margin-top: 2rem;">
+                <a href="#projects" class="btn btn-primary">Lihat Portfolio</a>
+                <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
+
+<!-- ABOUT SECTION DENGAN FOTO LINGKARAN -->
+<section id="about">
+    <div class="container">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem;">Tentang Saya</h2>
+        <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+            
+            <!-- Kolom Kiri: Teks (SESUAIKAN DENGAN TEXT ANDA) -->
+            <div>
+                <p style="font-size: 1.3rem; margin-bottom: 1rem; color: #3b82f6; font-style: italic; border-left: 3px solid #3b82f6; padding-left: 1.5rem;">
+                    "Memadukan teknik dan kreativitas untuk solusi terbaik."
+                </p>
+                <p style="margin-bottom: 1rem;">Latar belakang mekatronika dengan ketertarikan pada kreativitas visual. Berpengalaman dalam Project Administration dan IT Support, fokus pada pengelolaan dokumen, data, dan koordinasi tim.</p>
+                
+                <div style="background: #121820; padding: 1.5rem; border-radius: 20px; margin-top: 1.5rem;">
+                    <p><strong>🎓 Teknik Mekatronika</strong> · SMK SMTI Makassar (2020-2024)</p>
+                    <p><strong>📜 Sertifikasi:</strong> Dasar Manajemen Proyek, Ms Excel</p>
+                    <p><strong>🗣️ Bahasa:</strong> Indonesia (Fasih), Inggris (Menengah)</p>
+                </div>
+            </div>
+            
+            <!-- Kolom Kanan: FOTO LINGKARAN -->
+            <div style="text-align: center;">
+                <div style="width: 300px; height: 300px; border-radius: 50%; margin: 0 auto; overflow: hidden; border: 4px solid #3b82f6; box-shadow: 0 0 30px rgba(59,130,246,0.3);">
+                    <img src="assets/image/Profile.jpg" 
+                         alt="Muhammad Haekal" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
+                    <span style="background: #1e293b; padding: 0.3rem 1rem; border-radius: 30px; color: #b0b8c5;">#Engineer</span>
+                    <span style="background: #1e293b; padding: 0.3rem 1rem; border-radius: 30px; color: #b0b8c5;">#Photographer</span>
+                    <span style="background: #1e293b; padding: 0.3rem 1rem; border-radius: 30px; color: #b0b8c5;">#DetailOriented</span>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <main>
-    <!-- WELCOME SECTION -->
-    <section id="welcome" class="welcome">
-      <div class="container welcome-content fade-in">
-        <h1>Muhammad Haekal<br><span class="highlight">Mechatronics Engineer & Photographer</span></h1>
-        <p class="tagline">
-          Combining technical expertise with a creative eye for photography
-        </p>
-        <div class="contact-info-header">
-          <span>📞 +62 895-3297-165-31</span>
-          <span>✉️ haekalmuhammad1031@gmail.com</span>
-          <span>🔗 linkedin.com/in/haekalwithe</span>
-        </div>
-        <div class="btn-group">
-          <a href="#skills" class="btn btn-primary">lihat keahlian</a>
-          <a href="#portfolio" class="btn btn-outline">portfolio</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT ME (Gabungan CV + Web Lama) -->
-    <section id="about">
-      <div class="container about-grid fade-in">
-        <div class="about-text">
-          <h2 class="section-title">about me</h2>
-          <p class="profile-quote">
-            Combining technical expertise from my mechatronics background with a creative eye for photography, I bring a unique perspective to both engineering solutions and visual storytelling.
-          </p>
-          <p>Detail-oriented <strong>Project Administration & IT Support</strong> dengan pengalaman dalam pengelolaan dokumen proyek, pengolahan data, koordinasi tim, serta troubleshooting perangkat IT. Terbiasa melakukan administrasi proyek, input data, pengarsipan digital, pembuatan laporan, dan mampu bekerja dengan deadline, teliti, dan komunikatif.</p>
-          
-          <div class="education-box">
-            <h3>🎓 Pendidikan</h3>
-            <p><strong>Teknik Mekatronika</strong> · SMK SMTI Makassar | 2020-2024</p>
-          </div>
-
-          <!-- Sertifikasi & Bahasa (dari CV) -->
-          <div class="credentials-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
-            <div class="cert-box">
-              <h4>📜 Sertifikasi</h4>
-              <ul>
-                <li>Dasar Manajemen Proyek | 2025</li>
-                <li>Sertifikasi Excel | 2024</li>
-              </ul>
-            </div>
-            <div class="lang-box">
-              <h4>🗣️ Bahasa</h4>
-              <ul>
-                <li>Indonesia – Fasih</li>
-                <li>Inggris – Menengah</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="about-illu">
-          <div class="profile-placeholder">👨‍💻📷</div>
-          <p style="margin-top: 1rem;">#Engineer #Photographer #DetailOriented</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS & EXPERTISE (Technical + Photography) -->
-    <section id="skills">
-      <div class="container fade-in">
-        <h2 class="section-title">skills & expertise</h2>
-        
-        <!-- Technical Skills -->
-        <div class="skills-category">
-          <h3>🔧 Technical Skills (Mechatronics)</h3>
-          <div class="skills-grid">
-            <div class="skill-card"><span class="skill-icon">📊</span><h3>Data Analysis</h3></div>
-            <div class="skill-card"><span class="skill-icon">📝</span><h3>Technical Documentation</h3></div>
-            <div class="skill-card"><span class="skill-icon">🌡️</span><h3>Environmental Data</h3></div>
-            <div class="skill-card"><span class="skill-icon">📋</span><h3>Administrative Support</h3></div>
-            <div class="skill-card"><span class="skill-icon">🤝</span><h3>Project Coordination</h3></div>
-            <div class="skill-card"><span class="skill-icon">📊</span><h3>Microsoft Excel</h3></div>
-            <div class="skill-card"><span class="skill-icon">📁</span><h3>Document Control</h3></div>
-            <div class="skill-card"><span class="skill-icon">💻</span><h3>IT Support</h3></div>
-            <div class="skill-card"><span class="skill-icon">🖥️</span><h3>Troubleshooting</h3></div>
-            <div class="skill-card"><span class="skill-icon">🔧</span><h3>Inventory Control</h3></div>
-          </div>
-        </div>
-
-        <!-- Photography Skills -->
-        <div class="skills-category" style="margin-top: 3rem;">
-          <h3>📷 Photography</h3>
-          <div class="skills-grid">
-            <div class="skill-card"><span class="skill-icon">🚗</span><h3>Automotive</h3></div>
-            <div class="skill-card"><span class="skill-icon">💒</span><h3>Wedding</h3></div>
-            <div class="skill-card"><span class="skill-icon">🔍</span><h3>Detail Composition</h3></div>
-            <div class="skill-card"><span class="skill-icon">💡</span><h3>Lighting Techniques</h3></div>
-            <div class="skill-card"><span class="skill-icon">🎨</span><h3>Post-processing</h3></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PENGALAMAN KERJA (dari CV) -->
-    <section id="experience">
-      <div class="container fade-in">
-        <h2 class="section-title">pengalaman kerja</h2>
-        
-        <!-- PT Surveyor Makassar -->
-        <div class="exp-card">
-          <div class="exp-header">
-            <h3>Magang Administrasi Proyek & Helper Surveyor</h3>
-            <div class="exp-company">PT Surveyor Makassar · 2023 - 2024</div>
-          </div>
-          <ul class="exp-desc">
-            <li>Melakukan input data hasil pengukuran lapangan ke format laporan</li>
-            <li>Mengolah data TSP, Impinger, dan alat lingkungan menjadi dokumen terstruktur</li>
-            <li>Mendukung administrasi proyek: logistik dan penjadwalan</li>
-            <li>Menyiapkan berkas untuk pelaporan internal & eksternal</li>
-            <li>Mengarsipkan dokumen fisik & digital secara sistematis</li>
-          </ul>
-        </div>
-
-        <!-- PT Tirta Intimizu Nusantara -->
-        <div class="exp-card" style="margin-top: 2rem;">
-          <div class="exp-header">
-            <h3>IT Support & IT Administration</h3>
-            <div class="exp-company">PT Tirta Intimizu Nusantara · 2025 - 2026</div>
-          </div>
-          <ul class="exp-desc">
-            <li>Menangani troubleshooting PC, printer, OS, dan jaringan sederhana</li>
-            <li>Melakukan pendataan & kontrol aset IT (inventory, serial number, mutasi barang)</li>
-            <li>Membuat & memperbarui dokumen permintaan akses user</li>
-            <li>Menyusun laporan IT harian/mingguan (status tiket & perbaikan)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO HIGHLIGHTS (dari web lama) -->
-    <section id="portfolio">
-      <div class="container fade-in">
-        <h2 class="section-title">portfolio highlights</h2>
-        
-        <div class="projects-grid">
-          <!-- Technical Project -->
-          <div class="project-card">
-            <div class="project-title">🔧 Technical Project</div>
-            <div class="project-desc">
-              Chronicling the journey from design schematics to on-site deployment, highlighting the hands-on execution of complex technical solutions.
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Engineering</span>
-              <span class="tool-tag">Deployment</span>
-            </div>
-          </div>
-
-          <!-- Project Management -->
-          <div class="project-card">
-            <div class="project-title">📋 Project Management</div>
-            <div class="project-desc">
-              Overseeing the intricate orchestration of project lifecycles, from inception to execution, ensuring seamless logistical and administrative coherence.
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Administration</span>
-              <span class="tool-tag">Coordination</span>
-            </div>
-          </div>
-
-          <!-- Photography Portfolio -->
-          <div class="project-card">
-            <div class="project-title">📷 Photography</div>
-            <div class="project-desc">
-              Specializing in the visual documentation of technical environments and pivotal events, chronicling moments with a keen eye for detail and dynamic composition.
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Automotive</span>
-              <span class="tool-tag">Wedding</span>
-              <span class="tool-tag">Technical</span>
-            </div>
-          </div>
-
-          <!-- Environmental Data Project -->
-          <div class="project-card">
-            <div class="project-title">🌡️ Environmental Data</div>
-            <div class="project-desc">
-              Pengolahan data TSP, Impinger, dan alat lingkungan menjadi dokumen terstruktur di PT Surveyor Makassar.
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Data Analysis</span>
-              <span class="tool-tag">Excel</span>
-              <span class="tool-tag">Reporting</span>
-            </div>
-          </div>
-
-          <!-- IT Asset Management -->
-          <div class="project-card">
-            <div class="project-title">💻 IT Asset Management</div>
-            <div class="project-desc">
-              Pendataan & kontrol aset IT, inventory management, dan dokumentasi mutasi barang di PT Tirta Intimizu.
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Inventory</span>
-              <span class="tool-tag">Documentation</span>
-              <span class="tool-tag">Excel</span>
-            </div>
-          </div>
-
-          <!-- Data Processing System -->
-          <div class="project-card">
-            <div class="project-title">📊 Data Processing System</div>
-            <div class="project-desc">
-              Pengolahan data pengukuran lapangan dan pembuatan laporan terstruktur untuk proyek lingkungan.
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Data Entry</span>
-              <span class="tool-tag">Verification</span>
-              <span class="tool-tag">Reporting</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-<!-- CONTACT SECTION -->
-<section id="contact">
-  <div class="container fade-in" style="max-width:700px;">
-    <h2 class="section-title" style="text-align: center;">hubungi saya</h2>
-    
-    <div class="contact-info" style="text-align: center; margin-bottom: 2rem;">
-      <p>📞 +62 895-3297-165-31</p>
-      <p>✉️ haekalmuhammad1031@gmail.com</p>
-      <p>🔗 linkedin.com/in/haekalwithe</p>
-    </div>
-
-    <!-- FORM LANGSUNG KE FORMSPREE -->
-    <form action="https://formspree.io/f/mzdarzok" method="POST" class="contact-form">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="nama anda" required>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="email anda" required>
-      </div>
-      <div class="form-group">
-        <textarea name="message" rows="4" placeholder="pesan / lowongan kerja..." required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">kirim pesan</button>
-    </form>
-  </div>
 </section>
-</div></section>
-  <script src="js/script.js"></script>
-</body>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem;">Keahlian</h2>
+            
+            <h3 style="margin-bottom: 1rem;">🔧 Engineering & Technical</h3>
+            <div class="skills-grid">
+                <div class="skill-card">📊 Data Processing</div>
+                <div class="skill-card">📝 Technical Documentation</div>
+                <div class="skill-card">📋 Project Admin</div>
+                <div class="skill-card">💻 IT Support</div>
+                <div class="skill-card">📊 Microsoft Excel</div>
+                <div class="skill-card">🔧 Troubleshooting</div>
+            </div>
+            
+            <h3 style="margin: 2rem 0 1rem;">📷 Photography</h3>
+            <div class="skills-grid">
+                <div class="skill-card">🚗 Automotive</div>
+                <div class="skill-card">💒 Event & Wedding</div>
+                <div class="skill-card">🎨 Photo Editing</div>
+                <div class="skill-card">💡 Lighting</div>
+            </div>
+        </div>
+    </section>
+
+<!-- EXPERIENCE SECTION - GAMBAR DALAM CARD -->
+<section id="experience">
+    <div class="container">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem;">Pengalaman Kerja</h2>
+        
+        <!-- Card 1: IT Support -->
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; margin-bottom: 2rem; background: #121820; border-radius: 30px; padding: 1.5rem; border: 1px solid #2a3440;">
+            <!-- Kiri: Teks -->
+            <div>
+                <h3>IT Support & IT Administration</h3>
+                <div style="color: #3b82f6; margin: 0.5rem 0 1rem;">PT Tirta Intimizu Nusantara · 2025 - 2026</div>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Troubleshooting PC, printer, OS, dan jaringan</li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Pendataan & kontrol aset IT</li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Dokumentasi permintaan akses user</li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Laporan IT harian/mingguan</li>
+                </ul>
+            </div>
+            <!-- Kanan: Gambar -->
+            <div style="border-radius: 20px; overflow: hidden; height: 200px;">
+                <img src="assets/image/TIN.png" 
+                     alt="IT Support" 
+                     style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+        
+        <!-- Card 2: Surveyor -->
+        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; background: #121820; border-radius: 30px; padding: 1.5rem; border: 1px solid #2a3440;">
+            <!-- Kiri: Teks -->
+            <div>
+                <h3>Magang Administrasi Proyek & Helper Surveyor</h3>
+                <div style="color: #3b82f6; margin: 0.5rem 0 1rem;">PT Surveyor Makassar · 2023 - 2024</div>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Input data hasil pengukuran lapangan</li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Pengolahan data TSP, Impinger</li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Dukungan administrasi proyek</li>
+                    <li style="margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative;">✓ Pengarsipan dokumen</li>
+                </ul>
+            </div>
+            <!-- Kanan: Gambar -->
+            <div style="border-radius: 20px; overflow: hidden; height: 200px;">
+                <img src="assets/image/Surveyor.png" 
+                     alt="Surveyor" 
+                     style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem;">Portfolio</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">🔧 Technical Project</div>
+                    <p>Perencanaan hingga implementasi proyek teknik dengan fokus pada eksekusi dan solusi kompleks.</p>
+                    <div class="project-tags">
+                        <span class="tag">Engineering</span>
+                        <span class="tag">Deployment</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">📋 Project Management</div>
+                    <p>Manajemen siklus proyek dari perencanaan hingga pelaksanaan dengan koordinasi tim.</p>
+                    <div class="project-tags">
+                        <span class="tag">Administration</span>
+                        <span class="tag">Coordination</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">📷 Photography</div>
+                    <p>Dokumentasi visual untuk berbagai momen dengan pendekatan storytelling dan komposisi dinamis.</p>
+                    <div class="project-tags">
+                        <span class="tag">Automotive</span>
+                        <span class="tag">Wedding</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">🌡️ Environmental Data</div>
+                    <p>Pengolahan data lingkungan menjadi laporan terstruktur untuk proyek di PT Surveyor Makassar.</p>
+                    <div class="project-tags">
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Excel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Hubungi Saya</h2>
+            
+            <div class="contact-info">
+                <p>📞 +62 895-3297-165-31</p>
+                <p>✉️ haekalmuhammad1031@gmail.com</p>
+                <p>🔗 linkedin.com/in/haekalwithe</p>
+            </div>
+            
+            <form class="contact-form" action="https://formspree.io/f/mzdarzok" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Anda" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="4" placeholder="Pesan Anda..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Muhammad Haekal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript DENGAN SMOOTH SCROLL & POP UP -->
+    <script>
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if(targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== POP UP ANIMATION =====
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            return (rect.top <= windowHeight - 100 && rect.bottom >= 100);
+        }
+
+        document.querySelectorAll('section, .skill-card, .exp-card, .project-card, .about-grid > div').forEach(el => {
+            el.classList.add('fade-element');
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        function showVisibleElements() {
+            document.querySelectorAll('.fade-element').forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('load', showVisibleElements);
+        window.addEventListener('scroll', showVisibleElements);
+
+        // ===== ACTIVE NAVIGATION =====
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            
+            let current = '';
+            const scrollPosition = window.scrollY + headerHeight + 50;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if(scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.color = '#b0b8c5';
+                link.style.fontWeight = 'normal';
+                if(link.getAttribute('href') === '#' + current) {
+                    link.style.color = 'white';
+                    link.style.fontWeight = 'bold';
+                }
+            });
+        });
+    </script>
+    </body>
 </html>
