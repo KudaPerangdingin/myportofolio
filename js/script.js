@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ===== FORM HANDLER DENGAN SUCCESS MESSAGE =====
+// ===== FORM HANDLER DENGAN SUCCESS MESSAGE =====
 const contactForm = document.getElementById('contactForm');
 const formContainer = document.getElementById('formContainer');
 const successMessage = document.getElementById('successMessage');
@@ -75,7 +75,12 @@ if (contactForm) {
         // Reset form untuk next time
         contactForm.reset();
       } else {
-        alert('Gagal mengirim pesan. Coba lagi nanti.');
+        const data = await response.json();
+        if (data.errors) {
+          alert(data.errors.map(error => error.message).join(', '));
+        } else {
+          alert('Gagal mengirim pesan. Coba lagi nanti.');
+        }
         submitBtn.disabled = false;
         submitBtn.textContent = 'kirim pesan';
       }
@@ -87,6 +92,5 @@ if (contactForm) {
     }
   });
 }
-
   console.log('✅ Website siap!');
 });
