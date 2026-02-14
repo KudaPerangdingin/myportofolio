@@ -252,25 +252,31 @@
       <p>🔗 linkedin.com/in/haekalwithe</p>
     </div>
 
-    <!-- FORM FORMSPREE MURNI -->
-    <form action="https://formspree.io/f/mzdarzok" method="POST" class="contact-form">
-      <div class="form-group">
-        <input type="text" name="name" placeholder="nama anda" required>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="email anda" required>
-      </div>
-      <div class="form-group">
-        <textarea name="message" rows="4" placeholder="pesan / lowongan kerja..." required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">kirim pesan</button>
-    </form>
+    <!-- FORM CONTAINER (akan disembunyikan setelah submit) -->
+    <div id="formContainer">
+      <form id="contactForm" action="https://formspree.io/f/mzdarzok" method="POST" class="contact-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="nama anda" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="email anda" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" rows="4" placeholder="pesan / lowongan kerja..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">kirim pesan</button>
+      </form>
+    </div>
 
-    <!-- PESAN SUKSES (SEDERHANA) -->
-    <div style="text-align: center; margin-top: 2rem; color: #b0b8c5;">
-      <p>✅ Setelah kirim, Anda akan diarahkan ke halaman terima kasih</p>
+    <!-- SUCCESS MESSAGE (awalnya disembunyikan) -->
+    <div id="successMessage" class="success-message" style="display: none; text-align: center; padding: 2rem; background: #0f261a; border-radius: 20px;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+      <h3 style="color: #b4f0d7; margin-bottom: 0.5rem;">Pesan Terkirim!</h3>
+      <p style="color: #8fbfa8; margin-bottom: 1.5rem;">Terima kasih sudah menghubungi saya. Pesan Anda akan segera saya balas dalam 1x24 jam.</p>
+      <button onclick="location.reload()" style="background: #2d4a3a; color: white; border: none; padding: 0.8rem 2rem; border-radius: 40px; cursor: pointer;">Kirim Pesan Lagi</button>
     </div>
   </div>
+</section>
 </section>
   <script src="js/script.js"></script>
 </body>
